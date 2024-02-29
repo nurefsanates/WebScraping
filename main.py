@@ -54,6 +54,6 @@ def verileri_al(url, sayfa_sayisi):
 
 # Fonksiyonu kullanarak verileri al
 url = "YOUR URL"
-sayfa_sayisi = 182  # Kaç sayfa veri almak istediğimiz
+sayfa_sayisi = 5  # Kaç sayfa veri almak istediğimiz
 df = verileri_al(url, sayfa_sayisi)
 df.to_excel("abc.xlsx")
