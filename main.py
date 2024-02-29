@@ -28,27 +28,27 @@ def verileri_al(url, sayfa_sayisi):
             soup1 = BeautifulSoup(r1.content, "lxml")
 
             try:
-                baslik = soup1.find("div", attrs={"id": "auto_title"}).text
+                first = soup1.find("div", attrs={"id": "auto_title"}).text
             except AttributeError:
-                baslik = "Bilgi Yok"
+                first = "Bilgi Yok"
             try:
-                marka = soup1.find("a", attrs={"class": "_pr_auto_link_make v3-c-btn-text link"}).text
+                second = soup1.find("a", attrs={"class": "_pr_auto_link_make v3-c-btn-text link"}).text
             except AttributeError:
-                marka = "Bilgi Yok"
+                second = "Bilgi Yok"
             try:
-                model = soup1.find("a", attrs={"class": "_pr_auto_link_model v3-c-btn-text link"}).text
+                third = soup1.find("a", attrs={"class": "_pr_auto_link_model v3-c-btn-text link"}).text
             except AttributeError:
-                model = "Bilgi Yok"
+                third = "Bilgi Yok"
             try:
-                km = soup1.find("div", attrs={"data-view-unit": "KM"}).text.replace("km","")
+                fourth = soup1.find("div", attrs={"data-view-unit": "KM"}).text.replace("km","")
             except AttributeError:
-                km = "Bilgi Yok"
+                fourth = "Bilgi Yok"
             try:
-                konum = soup1.find("div", attrs={"class": "specs-value specs-location"}).text
+                fifth = soup1.find("div", attrs={"class": "specs-value specs-location"}).text
             except AttributeError:
-                konum = "Bilgi Yok"
-            liste.append([baslik, marka, model, km, konum])
-    df = pd.DataFrame(liste, columns=["Başlık", "Marka", "Model", "KM", "Konum"])
+                fifth = "Bilgi Yok"
+            liste.append([first, second, thirst, fourth, fifth])
+    df = pd.DataFrame(liste, columns=["first", "second", "thirst", "fourth", "fifth"])
     return df
 
 
